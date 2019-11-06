@@ -10,7 +10,54 @@ h6.codProduto {
     margin: 0px !important;
 }
 
+.product-in-card{
+    .content{
+        .flag-off{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $bg-checkout-error;
+            width: 60px;
+            color: $text-primary;
+            padding: 2px 5px;
+            position: absolute;
+            z-index: 20;
+            right: 10px;
+            border-radius: 3px;
+            font-size: 12px;
+
+            .value-off{
+                display: none;
+            }
+        }
+    }
+}
+
+.images-product{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .thumbnail{
+        width: 140px;
+
+        .slick-track{
+            width: 140px !important;
+            display: flex;
+            flex-direction: column;
+
+            .slick-slide{
+                width: 120px !important;
+            }
+        }
+    }
+}
+
 .infoProduto {
+
+    .desc-curta{
+        margin-top: 30px;
+    }
 
 
     #dica_compra_partial {

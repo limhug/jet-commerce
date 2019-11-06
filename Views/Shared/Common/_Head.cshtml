@@ -6,9 +6,9 @@
   <div class="ui container">
     <div class="ui middle aligned four column centered grid">
       <div class="row">
-        <div class="ui five wide mobile five wide tablet four wide computer column">
+        <div class="ui eight wide mobile five wide tablet three wide computer column">
           <a href="/Home" title="Página Inicial">
-            <img class="ui middle aligned image logo" src="/assets/image/logo/logo.png" alt="@LojaCorp.Control.Company._Company.FantasyName" title="@LojaCorp.Control.Company._Company.FantasyName">
+            <img class="ui middle aligned image logo" src="/assets/image/logo/logo-jms.svg" alt="@LojaCorp.Control.Company._Company.FantasyName" title="@LojaCorp.Control.Company._Company.FantasyName">
           </a>
         </div>
         <div class="ui center aligned six wide tablet seven wide computer column searchcolumn">
@@ -20,50 +20,55 @@
             <div class="results"></div>
           </div>
         </div>
-        @{
-            bool isb2b = Session["segment"] != null && Session["segment"].ToString() == "b2b" ? true : false;
-            DomainAssistedSale.Entities.Seller _assistedSale = (DomainAssistedSale.Entities.Seller)Session["Seller"];
-            bool isAssistedSale = _assistedSale != null ? true : false;
+        @{ bool isb2b = Session["segment"] != null && Session["segment"].ToString() == "b2b" ? true : false;
+          DomainAssistedSale.Entities.Seller _assistedSale = (DomainAssistedSale.Entities.Seller)Session["Seller"];
+          bool isAssistedSale = _assistedSale != null ? true : false;
 
-            if (!isb2b && !isAssistedSale)
-            {
-            <div class="ui center aligned two wide mobile two wide tablet two wide computer column">
-              <div>
-                <a href="/Customer/WishList"><i class="icon heart large red" style="position: absolute;"></i></a>
-                @{
-                  if (Request.Cookies["WishList"] == null)
-                  {
-                    @Html.Action("LoadWishListCookie", "Customer")
-                  }
-
-                  List<DomainCustomer.Entities.Wishlist.WishlistItem>
-                      wishList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DomainCustomer.Entities.Wishlist.WishlistItem>>(Request.Cookies["WishList"] != null ? HttpUtility.UrlDecode(Request.Cookies["WishList"].Value) : string.Empty);
-                  int wishListItemsCount = wishList != null ? wishList.Count() : 0;
-                }
-                <a id="wishListCount" href="/Customer/WishList" class="ui circular label">@wishListItemsCount</a>
-                          </div>
-                        </div>
+          if (!isb2b && !isAssistedSale){
+            <div class="ui center aligned three wide mobile two wide tablet two wide computer column">
+              <div class="lista-desejos">
+                <div class="heart-left">
+                  <a href="/Customer/WishList">
+                    <i class="icon heart"></i>
+                  </a>
+                    @{if (Request.Cookies["WishList"] == null){
+                        @Html.Action("LoadWishListCookie", "Customer")
                       }
-        }
-        <div class="ui right aligned eight wide mobile three wide tablet three wide computer column">
-          <div id="cartButton" class="ui labeled button cartbutton no margin bottom @_classMiniCart" tabindex="0" data-segment="@(Session["segment"] != null ? Session["segment"] : "b2c")">
-            <div class="ui basic primary button ">
-              <i class="cart icon"></i>
-              <span>@(Session["idEventList"] == null && Session["EventList"] == null ? "Meu Carrinho" : "Minha Lista")</span>
+                      List<DomainCustomer.Entities.Wishlist.WishlistItem>
+                      wishList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DomainCustomer.Entities.Wishlist.WishlistItem>>(Request.Cookies["WishList"] != null ? HttpUtility.UrlDecode(Request.Cookies["WishList"].Value) : string.Empty);
+                      int wishListItemsCount = wishList != null ? wishList.Count() : 0;
+                    }
+                  <a id="wishListCount" href="/Customer/WishList" class="ui circular label">@wishListItemsCount</a>
+                </div>
+                <a class="text-desejos" href="/Customer/WishList">
+                  <span>
+                    Lista de<br />
+                    Desejos
+                  </span>
+                </a>
+              </div>
             </div>
-            <a class="ui left pointing primary label" id="total_itens_card">
-              @{
-                if (Session["EventList"] == null)
-                {
-                  @Html.Action("TotalItensCart", "Checkout")
+          }
+        }
+        <div class="ui right aligned five wide mobile three wide tablet one wide computer column">
+          <div id="cartButton" class="ui labeled button cartbutton no margin bottom @_classMiniCart" tabindex="0" data-segment="@(Session["segment"] != null ? Session["segment"] : "b2c")">
+            <div class="header-cart">
+              <img class="icon-cart" src="/assets/image/shopping-bag.svg" />
+              <a class="ui left" id="total_itens_card">
+                @{
+                  if (Session["EventList"] == null)
+                  {
+                    @Html.Action("TotalItensCart", "Checkout")
+                  }
+                  else
+                  {
+                    @Html.Action("TotalItensList", "EventList")
+                  }
                 }
-                else
-                {
-                  @Html.Action("TotalItensList", "EventList")
-                }
-              }
 
-            </a>
+              </a>
+            </div>
+          
           </div>
           <div class="ui searchMobile mobile only">
             <div class="ui button icon centered">

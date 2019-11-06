@@ -5,6 +5,7 @@ require("./product/detail");
 require("./product/variations");
 require("./product/detail_b2b");
 require("./product/card");
+require("./product/percentage");
 
 /**
  * CheckOut API Calls

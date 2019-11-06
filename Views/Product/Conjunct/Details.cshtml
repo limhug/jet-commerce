@@ -295,6 +295,9 @@
                             </div>
                         </div>
                     </div>
+                    <div class="desc-curta">
+                        @Html.Raw(Model.DescriptionDetailSummary)
+                    </div>
                     <!--COMEÇO DICA DE COMPRA-->
                     <div id="dica_compra_partial">
                         @Html.Action("BuyingTips", "Product", new { productID = @Model.IdProduct, skuID = SKUPadrao != null ? SKUPadrao.IdSku : 0 })
@@ -429,13 +432,10 @@
         <!--COMEÇO DESCRIÇÃO-->
         <div class="row">
             <div class="ui top attached secondary pointing stackable menu tabular">
-                <a class="item active" data-tab="informacoes">Informações Básicas</a>
                 <a class="item" data-tab="detalhes">Características do Produto </a>
                 <a class="item" data-tab="avaliacoes">Avaliações</a>
             </div>
-            <div class="ui bottom attached tab segment basic active " data-tab="informacoes">
-                @Html.Raw(Model.DescriptionDetailSummary)
-            </div>
+            
             <!--COMEÇO DETALHES PRODUTO-->
             <div class="ui bottom attached tab segment basic" data-tab="detalhes" id="detalhes">
                 <div class="ui grid one column">

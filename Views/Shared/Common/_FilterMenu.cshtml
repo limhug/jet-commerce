@@ -15,18 +15,13 @@
                     </div>
                 </div>
                 <div class="column">
-                    <div class="ui accordion" id="filtroList">
+                    <div class="ui accordion menu-filters" id="filtroList">
                         @if (Model.References != null && Model.References.Count() > 0)
                         {
                             <!-- Page: ~/Views/Shared/Blocks/Product/_ReferencesFilters.cshtml -->
                             @Html.Partial("~/Views/Shared/Blocks/Product/_ReferencesFilters.cshtml", Model.References)
                         }
 
-                        @if (Model.Brands != null && Model.Brands.Count() > 1)
-                        {
-                            <!-- Page: ~/Views/Shared/Blocks/Brand/_BrandsFilters.cshtml -->
-                            @Html.Partial("~/Views/Shared/Blocks/Brand/_BrandsFilters.cshtml", Model.Brands)
-                        }
 
                         @if (Model.Categories != null && Model.Categories.Count() > 1)
                         {
@@ -34,18 +29,12 @@
                             @Html.Partial("~/Views/Shared/Blocks/Category/_CategoriesFilters.cshtml", Model.Categories)
                         }
 
-                        @if (Model.Attributes != null && Model.Attributes.Count() > 0)
-                        {
-                            <!-- Page: ~/Views/Shared/Blocks/Atribute/_AtributesFilters.cshtml -->
-                            @Html.Partial("~/Views/Shared/Blocks/Atributes/_AtributesFilters.cshtml", Model.Attributes)
-                        }
-
                         @Html.Partial("~/Views/Shared/Blocks/Product/_PriceFilters.cshtml")
                     </div>
                 </div>
             </div>
                 <!-- Page: ~/Views/Shared/Blocks/Group/_GroupList.cshtml -->
-                @Html.Action("GroupList", "Group")
+                <!-- @Html.Action("GroupList", "Group") -->
         </div>
 
     </div>

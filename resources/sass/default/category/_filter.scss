@@ -11,17 +11,14 @@
     }
   }
   .ui.accordion {
+    
     .title {
       font-weight: bold;
       font-size: 14px;
       color: $primary-color;
       text-transform: uppercase;
-      padding-left: 15px;
-      box-shadow: inset 3px 0 0 #EEEEEE;
-      margin-bottom: 10px;
+      
       &.active {
-        border-top: 3px solid #EEEEEE;
-        border-bottom: 3px solid #EEEEEE;
         box-shadow:none;
       }
       .icon {
@@ -33,6 +30,39 @@
         word-break: break-word;
         max-width: 120px;
         display: inline-block;
+      }
+    }
+  }
+  
+  
+  .menu-filters{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+
+    .drop-filter{
+      padding: 10px;
+      border: 1px solid rgba(0,0,0,0.1);
+
+      .field{
+        .variacao{
+          &.cor{
+            border-radius: 50%;
+            width: 35px;
+            height: 30px;
+            padding: 17px;
+            margin-bottom: 5px;
+          }
+        }
+
+        .checkText{
+          border-radius: 50%;
+          padding: 0;
+          width: 36px;
+          height: 36px;
+          line-height: 0px;
+          margin-bottom: 5px;
+        }
       }
     }
   }

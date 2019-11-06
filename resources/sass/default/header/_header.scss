@@ -9,6 +9,10 @@ headlogo {
   background: rgb(255,255,255);
   margin-top: 0px;
 
+  .logo{
+    height: 60px;
+  }
+
   &.fixed {
     box-shadow: rgba(0,0,0,.3) 0px 0px 10px 0px;
 
@@ -37,6 +41,10 @@ headlogo {
   }
 
   .searchcolumn {
+    .prompt{
+      outline: 0;
+      border-radius: 3px;
+    }
     .ui.icon.input > i.icon {
       opacity: initial;
     }
@@ -65,8 +73,8 @@ headlogo {
     .blocoBusca {
       display: none;
       background: #fff;
-      border-radius: .5em;
       border: 1px solid #DDD;
+      outline: 0;
 
       &.active {
         display: block !important;
@@ -76,9 +84,14 @@ headlogo {
         z-index: 10;
         width: calc(100% - 20px);
         height: 40px;
+        outline: 0;
       }
 
-      &Container {
+      &:focus{
+        outline: 0;
+      }
+
+      &.Container {
         display: flex !important;
         align-items: center;
 
@@ -108,10 +121,38 @@ headlogo {
 
   .cartbutton {
     margin: 0;
-    display: inline-block;
-    cursor: pointer;
     float: right;
-    line-height: 36px;
+    cursor: pointer;
+
+    .header-cart{
+      position: relative;
+      
+      .icon-cart{
+        width: 50px;
+        fill: $secondary-color;
+      }
+
+      
+      #total_itens_card{
+        position: absolute;
+        color: $text-primary;
+        width: 25px;
+        bottom: 13px;
+        right: 12px;
+        text-align: center;
+      }
+      
+      @media (max-width: $mobile-bp){
+        .icon-cart{
+          width: 40px;
+        }
+
+        #total_itens_card{
+          bottom: 6px;
+          right: 9px;
+        }
+      }
+    }
 
     .ui.basic.button {
       > span {
@@ -119,6 +160,31 @@ headlogo {
           display: none;
         }
       }
+    }
+  }
+}
+
+.lista-desejos{
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .heart{
+    color: $secondary-color;
+    font-size: 2.5em;
+    position: absolute;
+  }
+
+  .text-desejos{
+    margin-left: 25px;
+    color: $secondary-color;
+    line-height: 14px;
+    text-align: left;
+  }
+
+  @media (max-width: $mobile-bp){
+    .text-desejos{
+      display: none;
     }
   }
 }
@@ -136,27 +202,31 @@ headlogo {
 
   #wishListCount {
     position: relative;
-    bottom: 6px;
-    left: 16px;
+    bottom: 3px;
+    left: 10px;
     min-width: 18px !important;
     min-height: 18px !important;
     padding: 0 !important;
     line-height: 16px !important;
     font-size: 10px !important;
-    background: #fff !important;
-    border: 1px solid #2c3e50;
+    background-color: transparent;
+    border: 0;
+    color: #ffffff;
+    text-align: center;
   }
 }
 
 #wishListCount {
   position: relative;
-  bottom: 6px;
-  left: 16px;
+  bottom: 3px;
+  left: 10px;
   min-width: 18px !important;
   min-height: 18px !important;
   padding: 0 !important;
   line-height: 16px !important;
   font-size: 10px !important;
-  background: #fff !important;
-  border: 1px solid #2c3e50;
+  background-color: transparent;
+  border: 0;
+  color: #ffffff;
+  text-align: center;
 }

@@ -6,7 +6,7 @@
         Também Compraram
     </div>
                 
-        <div class="ui cards centered tambem-comprados slideshow">
+        <div class="ui five cards centered tambem-comprados slideshow" data-arrow="true" data-dots="false" data-qtd="5">
             @foreach (var product in Model)
             {
                 @Html.Partial("~/Views/Shared/Object/Product/_ProductInCard.cshtml", product)

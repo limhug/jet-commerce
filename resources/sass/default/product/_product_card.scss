@@ -14,46 +14,7 @@
       transition-duration: 0.3s;
       z-index: 4;
 
-      .dados {
-        padding: 10px 0;
-
-        a:focus {
-          text-decoration: underline;
-        }
-
-        h3 {
-          font-weight: normal;
-          color: $black;
-          font-size: 14px;
-          margin-bottom: 10px;
-        }
-
-        .precoBase {
-          color: #666666;
-          font-size: 14px;
-
-          i {
-            text-decoration: line-through;
-          }
-        }
-
-        .preco {
-          color: $primary-color;
-          font-size: 18px;
-          line-height: 30px;
-          font-weight: 900;
-
-          &:after {
-            content: '\A';
-            white-space: pre;
-          }
-        }
-
-        .parcelamento {
-          color: #666666;
-          font-size: 14px;
-        }
-      }
+      
 
       .botoes {
         border-top: 0 !important;
@@ -120,11 +81,22 @@
         bottom: 100%;
         transition-duration: .3s;
         width: 100%;
-        max-height: 230px;
+        max-height: 290px;
         z-index: 10 !important;
 
         &.mask {
           background: rgba(255, 255, 255, .5);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          @media (min-width: $desktop-xl){
+            height: 215px;
+          }
+
+          @media (max-width: $desktop-xl){
+            height: 180px;
+          }
         }
 
         .produto-esgotado-label {
@@ -135,6 +107,74 @@
             font-weight: 600;
             margin-bottom: .5em;
           }
+        }
+      }
+    }
+
+    .dados {
+      padding: 10px 0;
+
+      a:focus {
+        text-decoration: underline;
+      }
+
+      a{
+        .title-product-card {
+          text-transform: uppercase;
+          font-weight: 500;
+          color: $primary-color;
+          font-size: 13px;
+          margin: 15px 0;
+          padding: 0 5px 10px;
+        }
+      }
+
+
+      .offers{
+        display: flex;
+        align-items: center;
+        
+        .precoDe{
+          color: $primary-color;
+          font-size: 16px;
+          line-height: 30px;
+          font-weight: 500;
+          margin-right: 10px;
+        }
+  
+  
+        .precoPor{
+          color: $pink;
+          font-size: 18px;
+          line-height: 30px;
+          font-weight: 900;
+        }
+  
+  
+        .precoBase {
+          color: #666666;
+          font-size: 14px;
+  
+          i {
+            text-decoration: line-through;
+          }
+        }
+  
+        .preco {
+          color: $pink;
+          font-size: 18px;
+          line-height: 30px;
+          font-weight: 900;
+  
+          &:after {
+            content: '\A';
+            white-space: pre;
+          }
+        }
+  
+        .parcelamento {
+          color: #666666;
+          font-size: 14px;
         }
       }
     }
@@ -157,9 +197,9 @@
 
     .info {
 
-      @media screen and (min-width: $desktop-bp-min) {
-        transform: translateY(-40px);
-      }
+      // @media screen and (min-width: $desktop-bp-min) {
+      //   transform: translateY(-40px);
+      // }
 
 
       .botoes {
@@ -169,23 +209,32 @@
       .sku-options {
         opacity: 1;
       }
+
+      .btn-comprar-card{
+        padding: 10px;
+        background-color: $pink;
+        border-radius: 3px;
+
+        .icon-cart-product{
+          width: 20px;
+          height: 20px;
+        }
+      }
     }
   }
 
   .wishlist {
 
     .bcg-heart {
-      background: #9e9e9e;
-      border-radius: 50%;
+      background: rgba(255,255,255,0.6);
+      border-radius: 3px;
       text-align: center;
-      position: absolute;
-      z-index: 99;
-      right: 25px;
-      padding: 0 5px 5px;
+      padding: 10px;
       cursor: pointer;
     }
 
     i.icon.heart {
+      color: #00b7ae;
       font-size: 16px;
       margin: 0;
       padding: 0;
